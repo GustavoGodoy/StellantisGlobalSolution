@@ -24,4 +24,9 @@ public class Regional {
     @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "veiculos_id")
     private List<Veiculo> veiculos;
+
+    public Regional (List<Veiculo> veiculo){
+        this.data = LocalDate.now();
+        this.veiculos = veiculo;
+    }
 }
