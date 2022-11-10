@@ -46,7 +46,7 @@ public class StellantisController {
 
     @PostMapping(path = "/regional")
     public ResponseEntity postReginal(Regional regional){
-        return ResponseEntity.ok(regionalRepository.findAll());
+        return ResponseEntity.ok(regionalRepository.save(regional));
     }
     @PostMapping(path = "/veiculo")
     public ResponseEntity postVeiculo(@RequestBody Veiculo veiculo){
