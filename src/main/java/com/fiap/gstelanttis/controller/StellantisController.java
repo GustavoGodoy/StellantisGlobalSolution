@@ -1,5 +1,6 @@
 package com.fiap.gstelanttis.controller;
 
+import com.fiap.gstelanttis.models.Regional;
 import com.fiap.gstelanttis.models.Veiculo;
 import com.fiap.gstelanttis.respositories.RegionalRepository;
 import com.fiap.gstelanttis.respositories.VeiculoRepository;
@@ -23,7 +24,7 @@ public class StellantisController {
     private StellantisService stellantisService;
 
     @Autowired
-    private RegionalRepository repository;
+    private RegionalRepository regionalRepository;
 
     @Autowired
     private VeiculoRepository veiculoRepository;
@@ -32,16 +33,21 @@ public class StellantisController {
     public ResponseEntity getAllVeiculos(){
         return ResponseEntity.ok(veiculoRepository.findAll());
     }
+
     @GetMapping(path = "/veiculo/{id}")
-    public ResponseEntity getVeiculoById(@PathVariable Long id){
+    public ResponseEntity getVeiculoById(@PathVariable Long id) {
         return veiculoRepository.findById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping(path = "/regional")
     public ResponseEntity getAllRegionais(){
-        return ResponseEntity.ok(repository.findAll());
+        return ResponseEntity.ok(regionalRepository.findAll());
     }
 
+    @PostMapping(path = "/regional")
+    public ResponseEntity postReginal(Regional regional){
+        return ResponseEntity.ok(regionalRepository.findAll());
+    }
     @PostMapping(path = "/veiculo")
     public ResponseEntity postVeiculo(@RequestBody Veiculo veiculo){
         return ResponseEntity.status(HttpStatus.CREATED).body(stellantisService.saveVeiculo(veiculo));

@@ -22,16 +22,21 @@ public class StellantisService implements IStellantisService {
     public VeiculoRepository _veiculoRepo;
 
     public ResponseEntity saveVeiculo(Veiculo veiculo){
+
         try {
-            Regional regional = new Regional();
-            regional.setData(LocalDate.now());
+
             List<Veiculo> veiculos = new ArrayList<>();
             veiculos.add(_veiculoRepo.save(veiculo));
-            regional.setVeiculos(veiculos);
-            _regionalRepo.save(regional);
-            return ResponseEntity.ok(veiculo.toString() + regional.toString());
+
+            Regional regionalModel = new Regional(veiculos);
+            _regionalRepo.save(regionalModel);
+
+            return ResponseEntity.ok("Veiculo: " + veiculo.toString() + " Regional: "+regionalModel.toString());
+
         }catch (Exception e){
-            return ResponseEntity.internalServerError().body(e.getMessage());
+
+            return ResponseEntity.internalServerError().body("Obtivemos um erro: " + e.getMessage());
+
         }
     }
 }
