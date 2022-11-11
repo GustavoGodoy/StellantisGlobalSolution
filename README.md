@@ -1,7 +1,11 @@
 # Stellantis Global Solution
 
 NOME: GUSTAVO GODOY DE OLIVEIRA | RM 84427 | 3 SIS
+
 NOME: NATALIA CAROLINE MARTINS  | RM 84436 | 3 SIS
+
+NOME: RENAN FAVANO REBELLO  | RM 82432 | 3 SIS
+
 
 The proposal for the Global Solution comes in partnership with the Stellantis Group. Stellantis Group is one of the main corporations in the global automotive sector, having distinguished itself in the leadership of the main South American markets.
 
